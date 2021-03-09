@@ -35,6 +35,9 @@ html {
 .header .burger-menu {
     display: none;
 }
+.main-nav .logo {
+    display: none;
+}
 .main-nav .container-menu .menu-item {
     margin-right: 40px;
 }
@@ -136,9 +139,6 @@ html {
     .header .burger-menu svg {
         margin-right: 12px;
     }
-    .container-menu {
-        display: none !important;
-    }
     .section-primary {
         flex-direction: column-reverse;
     }
@@ -167,7 +167,45 @@ html {
         margin: 0 auto;
         display: flex;
         width: fit-content;
-
+    }
+    .main-nav .logo {
+        display: block;
+    }
+    .main-nav .overlay-menu {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,.35);
+        left: 0;
+        top: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: all .2s linear;
+        z-index: 5;
+    }
+    .main-nav .overlay-menu.active {
+        opacity: 1;
+        pointer-events: unset;
+    }
+    .main-nav .container-menu {
+        position: fixed;
+        right: 0;
+        top: 0;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        width: 85%;
+        background: white;
+        box-shadow: -5px 0 16px rgba(0,0,0,.35);
+        transform: translateX(900px);
+        transition: all .2s ease-in-out;
+        z-index: 6;
+    }
+    .main-nav .container-menu.active {
+        transform: translateX(0);
+    }
+    .main-nav .container-menu .menu-item {
+        margin: 25px 0 0 0;
     }
 }
 @media (max-width: 480px) {
